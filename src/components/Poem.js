@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Poem({title,content,author}) {
+
   return (
     <div>
       <h3>{title}</h3>
@@ -8,7 +9,7 @@ function Poem({title,content,author}) {
       <p>
         <strong>- By {author}</strong>
       </p>
-      <button>Mark as read</button>
+      <button >Mark as read</button>
     </div>
   );
 }

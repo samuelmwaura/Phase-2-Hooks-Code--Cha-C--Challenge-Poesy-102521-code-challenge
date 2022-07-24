@@ -1,16 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Poem from "./Poem";
 
-function PoemsContainer() {
-  const [poems,setPoems] = useState([])
-
-useEffect(()=>{
-fetch('http://localhost:8004/poems')
-.then(response=>response.json())
-.then(data=>setPoems(data))
-.catch(error=>console.log(error))
-},[])
-
+function PoemsContainer({poems}) {
 
   return (
     <div className="poems-container">

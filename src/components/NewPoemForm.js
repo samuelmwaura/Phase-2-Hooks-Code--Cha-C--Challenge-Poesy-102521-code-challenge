@@ -1,6 +1,6 @@
 import React, {useState } from "react";
 
-function NewPoemForm() {
+function NewPoemForm({addApoem}) {
 const [poemFormData,setPoemData]= useState({title:"",content: "",author: ""});
 
 function handleInputChange(event){
@@ -20,6 +20,7 @@ function handleFormSubmit(event){
   .then(response=>response.json())
   .then(data=>{
     setPoemData({title:"",content: "",author: ""})
+    addApoem(data);
   })
   .catch(error=>console.log(error))
 }
