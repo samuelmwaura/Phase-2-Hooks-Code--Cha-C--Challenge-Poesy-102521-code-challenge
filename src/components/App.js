@@ -27,9 +27,9 @@ function addApoem(newPoem){
     <div className="app">
       <div className="sidebar">
         <button onClick={handleClick}>Show/hide new poem form</button>
-        {isDisPlay ? <NewPoemForm addApoem={addApoem}/> : null}
+        {isDisPlay ? <NewPoemForm addApoem={addApoem} /> : null}
       </div>
-      <PoemsContainer poems={poems} />
+      <PoemsContainer poems={poems} setPoems={setPoems}/>
     </div>
   );
 }

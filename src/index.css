@@ -50,7 +50,7 @@ form.new-poem-form > textarea {
   margin-bottom: 0.5em;
 }
 
-input[type="submit"],
+input[type="submit"],select,
 button {
   font-weight: bold;
   font-size: 1em;
