@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Poem({id,title,content,author,isFav,changeDisplayedPoems}) {
+function Poem({id,title,content,author,isFav,changeDisplayedPoems,deleteApoem}) {
   const [isRead,setIsRead]= useState(false);
   //const [favourite,setFavourite] = useState(isFav) //There is another state that updates immediately you change if you want to change the displayed poem
   
@@ -22,7 +22,15 @@ function changeFav(){
   .catch(error=>console.log(error))
 }
 
-
+function handleDelete(){
+  fetch(`http://localhost:8004/poems/${id}`,{
+    method:'DELETE'
+  })
+  .then(response=>response.json())
+  .then(data=>deleteApoem(id))
+  .catch(error=>console.log(error))
+  
+}
   return (
     <div>
       <h3>{title}</h3>
@@ -32,6 +40,7 @@ function changeFav(){
       </p>
       <button onClick={()=>setIsRead(!isRead)} >{isRead?'Mark as unread':'Mark as read'}</button>
       <button onClick={changeFav}>{isFav?'Remove from fav':'Add to fav'}</button>
+      <button onClick={handleDelete}>Delete</button>
     </div>
   );
 }
