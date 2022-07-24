@@ -15,7 +15,7 @@ fetch('http://localhost:8004/poems')
   return (
     <div className="poems-container">
       {/* render a list of <Poem> components in here */}
-      {poems.map(poem=><Poem title={poem.title} content={poem.content} author={poem.author}/>
+      {poems.map(poem=><Poem key={poem.id} title={poem.title} content={poem.content} author={poem.author}/>
       )}
     </div>
   );
