@@ -3,11 +3,16 @@ import PoemsContainer from "./PoemsContainer";
 import NewPoemForm from "./NewPoemForm";
 
 function App() {
+const [isDisPlay,setIsDisplay]= useState(true);
+
+function handleClick(){
+  setIsDisplay(!isDisPlay);
+}
   return (
     <div className="app">
       <div className="sidebar">
-        <button >Show/hide new poem form</button>
-        {true ? <NewPoemForm /> : null}
+        <button onClick={handleClick}>Show/hide new poem form</button>
+        {isDisPlay ? <NewPoemForm /> : null}
       </div>
       <PoemsContainer />
     </div>
